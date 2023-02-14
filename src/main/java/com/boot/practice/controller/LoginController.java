@@ -47,13 +47,4 @@ public class LoginController {
     }
 
 
-    @RequestMapping(value="/login/properties",method = {RequestMethod.GET})
-    public String getProperties() throws JsonProcessingException {
-        ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        PropertiesReader propertiesReader = new PropertiesReader(myBootConfig.getName(),
-                myBootConfig.getAge(),myBootConfig.getAddress(),myBootConfig.getInfo(),myBootConfig.getCountry());
-        String json = objectWriter.writeValueAsString(propertiesReader);
-        System.out.println(json);
-        return json;
-    }
 }
