@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Component
 public class School implements ExamResult{
 
@@ -16,11 +18,9 @@ public class School implements ExamResult{
     @Autowired
     MyBootProperties myBootProperties;
 
-    @Autowired
-    MyAddressProperties myAddressProperties;
 
-    @Value("${myboot.address.address1}")
-    String address1;
+    @Value("${myboot.address}")
+    String address;
 
     @Override
     public String toString() {
@@ -58,7 +58,8 @@ public class School implements ExamResult{
     @Override
     public void getResult() {
 
-        System.out.println("Result of this school is average"+address1);
-        System.out.println("My name is "+myBootProperties.getName()+" and my Address is "+myAddressProperties.getAddress2());
+        System.out.println("Result of this school address istName()"+address);
+        System.out.println("My URL information"+myBootProperties.getInfo().get("url"));
+        System.out.println("My country list"+ Arrays.toString(myBootProperties.getCountry().toArray()));
     }
 }

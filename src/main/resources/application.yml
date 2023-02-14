@@ -1,11 +1,13 @@
 ---
 spring:
+  application:
+    name: login
+  profiles:
+    active: dev
   config:
-    import: "optional:configserver:"
-myboot:
-  person:
-    name: Tapaswini
-    id: 2345
-  address:
-    address1: 6144
-    address2: Prestige
+    import: optional:configserver:http://localhost:9195
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
