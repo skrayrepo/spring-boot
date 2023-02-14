@@ -1,0 +1,11 @@
+---
+spring:
+  config:
+    import: "optional:configserver:"
+myboot:
+  person:
+    name: Tapaswini
+    id: 2345
+  address:
+    address1: 6144
+    address2: Prestige

@@ -1,5 +1,9 @@
 package com.boot.practice.model;
 
+import com.boot.practice.properties.MyAddressProperties;
+import com.boot.practice.properties.MyBootProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,6 +12,15 @@ public class School implements ExamResult{
     String schoolName;
     String group;
     String schoolCode;
+
+    @Autowired
+    MyBootProperties myBootProperties;
+
+    @Autowired
+    MyAddressProperties myAddressProperties;
+
+    @Value("${myboot.address.address1}")
+    String address1;
 
     @Override
     public String toString() {
@@ -44,6 +57,8 @@ public class School implements ExamResult{
 
     @Override
     public void getResult() {
-        System.out.println("Result of this school is average");
+
+        System.out.println("Result of this school is average"+address1);
+        System.out.println("My name is "+myBootProperties.getName()+" and my Address is "+myAddressProperties.getAddress2());
     }
 }
